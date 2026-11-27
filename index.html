@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESTA HUSNA — Vocational Trainer Officer &amp; Electronic IoT Lecturer</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome for clean UI & tech icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Custom Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            dark: {
+              bg: '#0F1115',
+              surface: '#121418',
+              card: '#181B20',
+              cardHover: '#1E2229',
+              border: '#2A2F3A',
+            },
+            amberAccent: {
+              400: '#FBBF24',
+              500: '#F59E0B',
+              600: '#F97316',
+            }
+          },
+          boxShadow: {
+            'amber-glow': '0 0 40px -10px rgba(245, 158, 11, 0.35)',
+            'amber-btn': '0 10px 25px -5px rgba(245, 158, 11, 0.4)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Base & Scrollbar Styling */
+    body {
+      background-color: #0F1115;
+      color: #9CA3AF;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0F1115;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2A2F3A;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #F59E0B;
+    }
+
+    /* Floating Badge Animations */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes floatDelayed {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(8px); }
+    }
+    .animate-float-1 { animation: floatSlow 4.5s ease-in-out infinite; }
+    .animate-float-2 { animation: floatDelayed 5.2s ease-in-out infinite; }
+    .animate-float-3 { animation: floatSlow 5.8s ease-in-out infinite 0.5s; }
+    .animate-float-4 { animation: floatDelayed 4.8s ease-in-out infinite 1s; }
+
+    /* Subtle Hero Radial Backdrop */
+    .hero-glow {
+      background: radial-gradient(circle at 75% 45%, rgba(245, 158, 11, 0.14) 0%, rgba(249, 115, 22, 0.04) 35%, rgba(15, 17, 21, 0) 70%);
+    }
+
+    /* Glassmorphic Floating Pill */
+    .glass-badge {
+      background: rgba(24, 27, 32, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Smooth Progress Bar Transition */
+    .progress-fill {
+      transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-amber-500 selection:text-dark-bg">
+
+  <!-- ==================== 1. NAVBAR ==================== -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-dark-bg/85 backdrop-blur-md border-b border-dark-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Brand Logo -->
+        <a href="#home" class="flex items-center gap-2.5 group">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center text-dark-bg font-display font-extrabold text-base shadow-amber-btn group-hover:scale-105 transition-transform">
+            EH
+          </div>
+          <span class="font-display font-bold text-xl tracking-tight text-white">
+            ESTA <span class="text-amber-500">HUSNA</span>
+          </span>
+        </a>
+
+        <!-- Desktop Center Navigation -->
+        <nav class="hidden lg:flex items-center gap-7 text-xs font-semibold tracking-wider uppercase">
+          <a href="#home" class="nav-link text-amber-500 transition-colors">Home</a>
+          <a href="#about" class="nav-link text-gray-400 hover:text-white transition-colors">About</a>
+          <a href="#services" class="nav-link text-gray-400 hover:text-white transition-colors">Services</a>
+          <a href="#skills" class="nav-link text-gray-400 hover:text-white transition-colors">Skills</a>
+          <a href="#projects" class="nav-link text-gray-400 hover:text-white transition-colors">Projects</a>
+          <a href="#awards" class="nav-link text-gray-400 hover:text-white transition-colors">Awards</a>
+          <a href="#contact" class="nav-link text-gray-400 hover:text-white transition-colors">Contact</a>
+        </nav>
+
+        <!-- Right CTA & Mobile Menu Toggle -->
+        <div class="flex items-center gap-3">
+          <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-white border border-dark-border hover:border-amber-500 hover:text-amber-400 transition-all duration-200">
+            Let's Talk
+          </a>
+
+          <!-- Mobile Hamburger Button -->
+          <button id="mobile-menu-btn" aria-label="Toggle Menu" class="lg:hidden p-2.5 rounded-xl bg-dark-card border border-dark-border text-gray-300 hover:text-amber-500 hover:border-amber-500/50 transition-colors">
+            <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-dark-card border-b border-dark-border px-4 pt-3 pb-6 space-y-2 shadow-2xl">
+      <a href="#home" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-sm font-semibold text-amber-500 bg-dark-bg/50">Home</a>
+      <a href="#about" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-sm font-medium text-gray-300 hover:text-white hover:bg-dark-bg/50">About</a>
+      <a href="#services" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-sm font-medium text-gray-300 hover:text-white hover:bg-dark-bg/50">Services</a>
+      <a href="#skills" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-sm font-medium text-gray-300 hover:text-white hover:bg-dark-bg/50">Skills</a>
+      <a href="#projects" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-sm font-medium text-gray-300 hover:text-white hover:bg-dark-bg/50">Projects</a>
+      <a href="#awards" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-sm font-medium text-gray-300 hover:text-white hover:bg-dark-bg/50">Awards</a>
+      <a href="#contact" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-sm font-medium text-gray-300 hover:text-white hover:bg-dark-bg/50">Contact</a>
+      <div class="pt-2">
+        <a href="#contact" class="mobile-nav-link flex items-center justify-center w-full py-3 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-dark-bg font-bold text-sm uppercase tracking-wider">
+          Let's Talk
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== 2. HERO SECTION ==================== -->
+  <section id="home" class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 hero-glow overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Column: Intro, CTA, Status & Contact Icons -->
+        <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+          <!-- Overline -->
+          <div class="inline-flex items-center gap-3">
+            <span class="w-8 h-[2px] bg-amber-500 rounded-full"></span>
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-amber-500">Hello, I'm</span>
+          </div>
+
+          <!-- Name -->
+          <h1 class="text-3xl sm:text-5xl lg:text-[3.35rem] font-extrabold tracking-tight text-white leading-tight">
+            Mohd. <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-500">Esta Husna</span> Bin Zainal
+          </h1>
+
+          <!-- Role Subtitle -->
+          <p class="text-base sm:text-xl font-medium text-gray-200">
+            Vocational Trainer Officer &amp; Technical Lecturer (Electronic IoT) <span class="text-amber-500 animate-pulse">|</span>
+          </p>
+
+          <!-- Short Bio -->
+          <p class="text-sm sm:text-base text-gray-400 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            Lecturer at Kolej Kemahiran Tinggi MARA (TVETMARA) Petaling Jaya specializing in Electronic IoT, Digital Communication, Embedded Systems, and CompTIA ITF+ certification.
+          </p>
+
+          <!-- Primary & Secondary Pill Buttons -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#contact" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-dark-bg font-bold text-xs uppercase tracking-wider shadow-amber-btn transition-all duration-200 hover:-translate-y-0.5">
+              <span>Get In Touch</span>
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+
+            <a href="#projects" class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-dark-card/70 hover:bg-dark-card border border-dark-border hover:border-amber-500/60 text-white font-bold text-xs uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5">
+              <span>View Innovations</span>
+              <i class="fa-solid fa-microchip text-amber-500 text-xs"></i>
+            </a>
+          </div>
+
+          <!-- Institution & Registration Status Indicator -->
+          <div class="flex items-center justify-center lg:justify-start gap-2.5 pt-1">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span class="text-xs font-semibold uppercase tracking-wider text-gray-300">TVETMARA Petaling Jaya &bull; BEM &amp; MBOT Registered</span>
+          </div>
+
+          <!-- Direct Contact Icon Buttons -->
+          <div class="flex items-center justify-center lg:justify-start gap-3 pt-2">
+            <a href="mailto:estahusna@mara.gov.my" aria-label="Email estahusna@mara.gov.my" title="estahusna@mara.gov.my" class="w-10 h-10 rounded-xl bg-dark-card border border-dark-border hover:border-amber-500 text-gray-300 hover:text-amber-500 flex items-center justify-center transition-all hover:-translate-y-0.5">
+              <i class="fa-regular fa-envelope text-base"></i>
+            </a>
+            <a href="tel:+60127501658" aria-label="Call +6012-750 1658" title="+6012-750 1658" class="w-10 h-10 rounded-xl bg-dark-card border border-dark-border hover:border-amber-500 text-gray-300 hover:text-amber-500 flex items-center justify-center transition-all hover:-translate-y-0.5">
+              <i class="fa-solid fa-phone text-sm"></i>
+            </a>
+            <a href="#about" aria-label="Academic & Professional Credentials" title="BEM, MBOT & MIET Credentials" class="w-10 h-10 rounded-xl bg-dark-card border border-dark-border hover:border-amber-500 text-gray-300 hover:text-amber-500 flex items-center justify-center transition-all hover:-translate-y-0.5">
+              <i class="fa-solid fa-id-card-clip text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Framed Portrait Placeholder + 4 Floating Badges -->
+        <div class="lg:col-span-5 relative flex items-center justify-center mt-6 lg:mt-0">
+          <!-- Decorative Outer Ring Glow -->
+          <div class="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 flex items-center justify-center">
+            <div class="absolute inset-0 rounded-full border-2 border-amber-500/30 shadow-amber-glow"></div>
+            <div class="absolute inset-3 rounded-full border border-dashed border-amber-500/20 animate-[spin_35s_linear_infinite]"></div>
+
+            <!-- Portrait Image Container (Ready for actual portrait photo upload) -->
+            <div class="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-2 border-dark-border bg-dark-card shadow-2xl flex items-center justify-center">
+              <img
+                src="https://raw.githubusercontent.com/estamysite/photo/refs/heads/main/esta1.jpg"
+                onerror="this.onerror=null;this.src='https://placehold.co/600x600/181B20/F59E0B?text=Mohd.+Esta+Husna';"
+                alt="Mohd. Esta Husna Bin Zainal Portrait"
+                class="w-full h-full object-cover object-top"
+              />
+              <!-- Subtle Bottom Vignette -->
+              <div class="absolute inset-0 bg-gradient-to-t from-dark-bg/70 via-transparent to-transparent"></div>
+            </div>
+
+            <!-- Floating Badge 1: Top Right -->
+            <div class="glass-badge animate-float-1 absolute -top-2 -right-2 sm:top-4 sm:-right-6 px-3.5 py-2 rounded-xl flex items-center gap-2.5 shadow-xl">
+              <span class="w-6 h-6 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center text-sm">
+                <i class="fa-solid fa-microchip"></i>
+              </span>
+              <span class="text-xs font-semibold text-white">Electronic IoT</span>
+            </div>
+
+            <!-- Floating Badge 2: Middle Left -->
+            <div class="glass-badge animate-float-2 absolute top-1/3 -left-4 sm:-left-10 px-3.5 py-2 rounded-xl flex items-center gap-2.5 shadow-xl">
+              <span class="w-6 h-6 rounded-lg bg-sky-500/15 text-sky-400 flex items-center justify-center text-sm">
+                <i class="fa-solid fa-certificate"></i>
+              </span>
+              <span class="text-xs font-semibold text-white">CompTIA ITF+</span>
+            </div>
+
+            <!-- Floating Badge 3: Bottom Left -->
+            <div class="glass-badge animate-float-3 absolute bottom-6 -left-2 sm:bottom-8 sm:-left-6 px-3.5 py-2 rounded-xl flex items-center gap-2.5 shadow-xl">
+              <span class="w-6 h-6 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm">
+                <i class="fa-solid fa-circuit-board fa-wave-square"></i>
+              </span>
+              <span class="text-xs font-semibold text-white">PCB Design</span>
+            </div>
+
+            <!-- Floating Badge 4: Bottom Right -->
+            <div class="glass-badge animate-float-4 absolute bottom-2 -right-2 sm:bottom-6 sm:-right-6 px-3.5 py-2 rounded-xl flex items-center gap-2.5 shadow-xl">
+              <span class="w-6 h-6 rounded-lg bg-orange-500/15 text-orange-400 flex items-center justify-center text-sm">
+                <i class="fa-solid fa-shield-halved"></i>
+              </span>
+              <span class="text-xs font-semibold text-white">BEM / MBOT</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. ABOUT ME SECTION ==================== -->
+  <section id="about" class="py-20 lg:py-24 bg-dark-surface border-y border-dark-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left Column: Bio, 4 Stat Cards, View Qualifications Button -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2.5">
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-amber-500">About Me</span>
+            <span class="w-8 h-[2px] bg-amber-500 rounded-full"></span>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-snug">
+            Engineering Educator &amp; <br class="hidden sm:inline" />
+            IoT Innovation Specialist
+          </h2>
+
+          <p class="text-sm sm:text-base text-gray-400 leading-relaxed">
+            Vocational Trainer Officer and Technical Lecturer at Kolej Kemahiran Tinggi MARA (TVETMARA) Petaling Jaya with extensive experience in Electronics Engineering, Internet of Things (IoT), and technical pedagogy since 2006. Holds an MSc in Engineering Management with Merit from Brunel University, London, and a B.Eng (Hons) in Electrical and Electronics Engineering from Northumbria University, UK.
+          </p>
+
+          <!-- 4 Stat Cards (Strictly derived from CV) -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 pt-2">
+            <div class="bg-dark-card border border-dark-border hover:border-amber-500/40 rounded-2xl p-4 text-center transition-colors">
+              <div class="text-2xl sm:text-3xl font-extrabold text-amber-500 font-display">20+</div>
+              <div class="text-[11px] font-medium text-gray-400 mt-1">Years in Engineering &amp; TVET</div>
+            </div>
+            <div class="bg-dark-card border border-dark-border hover:border-amber-500/40 rounded-2xl p-4 text-center transition-colors">
+              <div class="text-2xl sm:text-3xl font-extrabold text-amber-500 font-display">17</div>
+              <div class="text-[11px] font-medium text-gray-400 mt-1">Innovation Medals &amp; Awards</div>
+            </div>
+            <div class="bg-dark-card border border-dark-border hover:border-amber-500/40 rounded-2xl p-4 text-center transition-colors">
+              <div class="text-2xl sm:text-3xl font-extrabold text-amber-500 font-display">9+</div>
+              <div class="text-[11px] font-medium text-gray-400 mt-1">Technical Courses Taught</div>
+            </div>
+            <div class="bg-dark-card border border-dark-border hover:border-amber-500/40 rounded-2xl p-4 text-center transition-colors">
+              <div class="text-2xl sm:text-3xl font-extrabold text-amber-500 font-display">3</div>
+              <div class="text-[11px] font-medium text-gray-400 mt-1">Professional Registrations</div>
+            </div>
+          </div>
+
+          <!-- View Qualifications & Career Trigger -->
+          <div class="pt-2 flex flex-wrap gap-3">
+            <button onclick="openQualificationsModal()" class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500 text-white text-xs font-bold uppercase tracking-wider transition-all">
+              <span>View Full Qualifications &amp; Registrations</span>
+              <i class="fa-solid fa-graduation-cap text-amber-500"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Column: Profile Details Card + Stylized Signature SVG -->
+        <div class="lg:col-span-5 space-y-6 lg:mt-6">
+          <div class="bg-dark-card border border-dark-border rounded-2xl p-6 sm:p-7 space-y-4 shadow-xl">
+            <div class="flex items-center justify-between gap-4 py-2 border-b border-dark-border/70">
+              <div class="flex items-center gap-3 text-gray-400 text-sm shrink-0">
+                <i class="fa-regular fa-user text-amber-500 w-4"></i>
+                <span>Name:</span>
+              </div>
+              <span class="text-sm font-semibold text-white text-right">Mohd. Esta Husna Bin Zainal</span>
+            </div>
+
+            <div class="flex items-center justify-between gap-4 py-2 border-b border-dark-border/70">
+              <div class="flex items-center gap-3 text-gray-400 text-sm shrink-0">
+                <i class="fa-regular fa-envelope text-amber-500 w-4"></i>
+                <span>Email:</span>
+              </div>
+              <a href="mailto:estahusna@mara.gov.my" class="text-sm font-semibold text-white hover:text-amber-400 transition-colors text-right break-all">estahusna@mara.gov.my</a>
+            </div>
+
+            <div class="flex items-center justify-between gap-4 py-2 border-b border-dark-border/70">
+              <div class="flex items-center gap-3 text-gray-400 text-sm shrink-0">
+                <i class="fa-solid fa-phone text-amber-500 w-4"></i>
+                <span>Phone:</span>
+              </div>
+              <a href="tel:+60127501658" class="text-sm font-semibold text-white hover:text-amber-400 transition-colors text-right">+6012-750 1658</a>
+            </div>
+
+            <div class="flex items-center justify-between gap-4 pt-2">
+              <div class="flex items-center gap-3 text-gray-400 text-sm shrink-0">
+                <i class="fa-solid fa-building-columns text-amber-500 w-4"></i>
+                <span>Institution:</span>
+              </div>
+              <span class="text-sm font-semibold text-emerald-400 text-right">TVETMARA Petaling Jaya, Selangor</span>
+            </div>
+          </div>
+
+          <!-- Stylized Vector Signature Graphic -->
+          <div class="px-2 flex items-center justify-between">
+            <div>
+              <svg class="w-48 h-14 text-amber-500/90" viewBox="0 0 240 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 46C22 24 34 12 42 12C48 12 24 30 22 34C20 38 44 26 52 30C58 33 48 45 58 45C68 45 78 24 86 15C88 12 78 44 85 45C92 46 102 32 108 34C114 36 110 45 118 44C126 43 138 22 146 14C148 12 138 44 146 44C154 44 166 32 174 34C182 36 178 45 188 44C198 43 212 34 226 32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M36 55C92 51 154 49 216 52" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+              </svg>
+              <p class="text-[11px] uppercase tracking-widest text-gray-500 mt-1">Esta Husna &bull; KKTM Petaling Jaya</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Compact Career Record & Qualifications Grid inside About Section -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-14 pt-12 border-t border-dark-border/60">
+        
+        <!-- Career Record Card -->
+        <div class="bg-dark-card border border-dark-border rounded-2xl p-6 sm:p-7 space-y-5">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-500 flex items-center justify-center text-sm">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Career Record</h3>
+          </div>
+
+          <div class="space-y-4 text-xs sm:text-sm">
+            <div class="border-l-2 border-amber-500 pl-4 space-y-0.5">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-amber-500">2019 – Present</span>
+              <h4 class="font-bold text-white">Lecturer (Technical - Electronic IoT)</h4>
+              <p class="text-gray-400">Kolej Kemahiran Tinggi MARA Petaling Jaya</p>
+            </div>
+
+            <div class="border-l-2 border-amber-500 pl-4 space-y-0.5">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-amber-500">2020 – Present</span>
+              <h4 class="font-bold text-white">Trainer for CompTIA Academy (ITF+)</h4>
+              <p class="text-gray-400">Kolej Kemahiran Tinggi MARA Petaling Jaya</p>
+            </div>
+
+            <div class="border-l-2 border-dark-border pl-4 space-y-0.5">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-gray-400">2006 – 2019</span>
+              <h4 class="font-bold text-white">Lecturer (Technical - Electronics - Pearson HND)</h4>
+              <p class="text-gray-400">Kolej Kemahiran Tinggi MARA Petaling Jaya</p>
+            </div>
+
+            <div class="border-l-2 border-dark-border pl-4 space-y-0.5">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-gray-400">2005 – 2006</span>
+              <h4 class="font-bold text-white">Production Engineer</h4>
+              <p class="text-gray-400">Mitsumi Electronics (M) Sdn Bhd</p>
+            </div>
+
+            <div class="border-l-2 border-dark-border pl-4 space-y-0.5">
+              <span class="text-[11px] font-semibold uppercase tracking-wider text-gray-400">1997 – 1998</span>
+              <h4 class="font-bold text-white">General Clerk</h4>
+              <p class="text-gray-400">YTL Cement Berhad, Kuala Lumpur</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academic Qualifications & Professional Certifications Card -->
+        <div class="bg-dark-card border border-dark-border rounded-2xl p-6 sm:p-7 space-y-5">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-500 flex items-center justify-center text-sm">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white">Academic &amp; Professional Credentials</h3>
+          </div>
+
+          <div class="space-y-3.5 text-xs sm:text-sm">
+            <div class="p-3 rounded-xl bg-dark-bg/70 border border-dark-border/70">
+              <div class="flex justify-between items-start gap-2">
+                <h4 class="font-bold text-white">MSc in Engineering Management with Merit</h4>
+                <span class="text-[11px] font-semibold text-amber-500 shrink-0">2013–2014</span>
+              </div>
+              <p class="text-gray-400 text-xs mt-0.5">Brunel University, London, UK</p>
+            </div>
+
+            <div class="p-3 rounded-xl bg-dark-bg/70 border border-dark-border/70">
+              <div class="flex justify-between items-start gap-2">
+                <h4 class="font-bold text-white">B.Eng (Hons) in Electrical and Electronics Engineering</h4>
+                <span class="text-[11px] font-semibold text-amber-500 shrink-0">2003–2005</span>
+              </div>
+              <p class="text-gray-400 text-xs mt-0.5">Northumbria University, UK</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+              <div class="p-2.5 rounded-xl bg-dark-bg/70 border border-dark-border/70">
+                <span class="text-amber-500 font-bold block">2007</span>
+                <span class="text-white font-semibold block">TM001 Pedagogy</span>
+                <span class="text-gray-400 text-[11px]">CIAST</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-dark-bg/70 border border-dark-border/70">
+                <span class="text-amber-500 font-bold block">2001–2002</span>
+                <span class="text-white font-semibold block">HND Electronics</span>
+                <span class="text-gray-400 text-[11px]">IKM Petaling Jaya</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-dark-bg/70 border border-dark-border/70">
+                <span class="text-amber-500 font-bold block">1999–2000</span>
+                <span class="text-white font-semibold block">Cert. Electronics</span>
+                <span class="text-gray-400 text-[11px]">IKM Beseri, Perlis</span>
+              </div>
+            </div>
+
+            <!-- Professional Registrations -->
+            <div class="pt-2 border-t border-dark-border/70 space-y-2">
+              <p class="text-[11px] font-bold uppercase tracking-wider text-amber-500">Professional Certifications</p>
+              <ul class="space-y-1.5 text-xs text-gray-300">
+                <li class="flex items-center justify-between gap-2">
+                  <span>Registered Graduate Engineer (BEM)</span>
+                  <span class="font-mono text-amber-400 font-semibold">G 1179269A</span>
+                </li>
+                <li class="flex items-center justify-between gap-2">
+                  <span>Registered Graduate Technologist (MBOT)</span>
+                  <span class="font-mono text-amber-400 font-semibold">GT22020874</span>
+                </li>
+                <li class="flex items-center justify-between gap-2">
+                  <span>Member, Institute of Engineering and Technology (MIET)</span>
+                  <span class="font-mono text-amber-400 font-semibold">1100158848</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. SERVICES / CORE AREAS SECTION ==================== -->
+  <section id="services" class="py-20 lg:py-24 bg-dark-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Heading -->
+      <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-amber-500">What I Do</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Areas of Expertise</h2>
+        <p class="text-sm text-gray-400">Technical instruction, Electronic IoT systems, hardware development, and national innovation consultancy.</p>
+      </div>
+
+      <!-- 4-Column Service Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Area 1 -->
+        <div class="group bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-bl-full pointer-events-none group-hover:bg-amber-500/10 transition-colors"></div>
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-500 flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2.5">Electronic IoT &amp; Embedded Systems</h3>
+            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-6">
+              Teaching Introduction to IoT, Electronic Circuits, Analogue &amp; Digital Electronics, and Instrumentation &amp; Control Principles.
+            </p>
+          </div>
+          <button onclick="openServiceModal('Electronic IoT & Embedded Systems', 'Courses taught at KKTM Petaling Jaya include Introduction to IoT, Workshop Electronics, Digital Fundamental, Electronic Circuits, Electronics, Analogue Electronics, and Instrumentation and Control Principles.')" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-500 group-hover:text-amber-400">
+            <span>Learn More</span>
+            <i class="fa-solid fa-arrow-right text-[11px] group-hover:translate-x-1 transition-transform"></i>
+          </button>
+        </div>
+
+        <!-- Area 2 -->
+        <div class="group bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-bl-full pointer-events-none group-hover:bg-amber-500/10 transition-colors"></div>
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-500 flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-network-wired"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2.5">CompTIA &amp; IT Training</h3>
+            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-6">
+              Certified Trainer for CompTIA Academy (ITF+), covering CompTIA A+, Network+, CIOS, Basic Networking, and Cellular Communication.
+            </p>
+          </div>
+          <button onclick="openServiceModal('CompTIA & IT Training', 'Serving as Trainer for CompTIA Academy (ITF+) at KKTM Petaling Jaya (2020–Present), delivering Digital Communication and Networks Technologies, Basic Networking, Basic Cellular Communication, Radio, CompTIA A+, CompTIA Network+, and CompTIA CIOS.')" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-500 group-hover:text-amber-400">
+            <span>Learn More</span>
+            <i class="fa-solid fa-arrow-right text-[11px] group-hover:translate-x-1 transition-transform"></i>
+          </button>
+        </div>
+
+        <!-- Area 3 -->
+        <div class="group bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-bl-full pointer-events-none group-hover:bg-amber-500/10 transition-colors"></div>
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-500 flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2.5">PCB Development &amp; Hardware</h3>
+            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-6">
+              Hardware and software PCB development, computer/laptop hardware &amp; software installation, and maintenance.
+            </p>
+          </div>
+          <button onclick="openServiceModal('PCB Development & Hardware', 'Hands-on expertise in PCB Development (Software and Hardware), conducting internal reskilling training for lecturers, and Computer Installation (Hardware and Software) & Maintenance for PCs and Laptops.')" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-500 group-hover:text-amber-400">
+            <span>Learn More</span>
+            <i class="fa-solid fa-arrow-right text-[11px] group-hover:translate-x-1 transition-transform"></i>
+          </button>
+        </div>
+
+        <!-- Area 4 -->
+        <div class="group bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-6 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-amber-500/5 rounded-bl-full pointer-events-none group-hover:bg-amber-500/10 transition-colors"></div>
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-500 flex items-center justify-center text-xl mb-5 group-hover:scale-110 transition-transform">
+              <i class="fa-solid fa-award"></i>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2.5">Consultancy &amp; External Jury</h3>
+            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-6">
+              WSMB 2025 Electronics Trainer, CIAST IoT eProfiling Panel, MARA Japan Industrial Institute External Verifier, and Innovation Jury.
+            </p>
+          </div>
+          <button onclick="openServiceModal('Consultancy & External Jury', 'Active contributor as WSMB Trainer 2025 (Electronics), CIAST Trainer for IoT Installation for Green Environment at KKTM Sri Gading (2025), CIAST IoT eProfiling Panel (Part 1 & 2), MJII External Verifier, Pakar Rujuk KOSPEN Plus, and External Jury for national & international innovation competitions.')" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-500 group-hover:text-amber-400">
+            <span>Learn More</span>
+            <i class="fa-solid fa-arrow-right text-[11px] group-hover:translate-x-1 transition-transform"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 5. SKILLS & TECHNOLOGIES SECTION ==================== -->
+  <section id="skills" class="py-20 lg:py-24 bg-dark-surface border-y border-dark-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: 6 Domain Competency Bars (Labeled strictly with factual CV roles/domains) -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="space-y-2">
+            <span class="text-xs font-bold uppercase tracking-[0.2em] text-amber-500">My Expertise</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Skills, Courses &amp; Certifications</h2>
+          </div>
+
+          <div id="skills-bars" class="space-y-5 pt-2">
+            <!-- Domain 1 -->
+            <div>
+              <div class="flex justify-between gap-2 text-xs font-semibold mb-2">
+                <span class="text-gray-200">Electronic IoT &amp; Instrumentation</span>
+                <span class="text-amber-500 shrink-0">KKTM PJ (2019–Present)</span>
+              </div>
+              <div class="w-full h-2 bg-dark-card rounded-full overflow-hidden border border-dark-border/50">
+                <div class="progress-fill h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full" data-width="100%" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <!-- Domain 2 -->
+            <div>
+              <div class="flex justify-between gap-2 text-xs font-semibold mb-2">
+                <span class="text-gray-200">Digital Communication &amp; Networking</span>
+                <span class="text-amber-500 shrink-0">CompTIA A+, Network+, CIOS</span>
+              </div>
+              <div class="w-full h-2 bg-dark-card rounded-full overflow-hidden border border-dark-border/50">
+                <div class="progress-fill h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full" data-width="100%" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <!-- Domain 3 -->
+            <div>
+              <div class="flex justify-between gap-2 text-xs font-semibold mb-2">
+                <span class="text-gray-200">PCB Development (Hardware &amp; Software)</span>
+                <span class="text-amber-500 shrink-0">Internal Reskilling Trainer</span>
+              </div>
+              <div class="w-full h-2 bg-dark-card rounded-full overflow-hidden border border-dark-border/50">
+                <div class="progress-fill h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full" data-width="100%" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <!-- Domain 4 -->
+            <div>
+              <div class="flex justify-between gap-2 text-xs font-semibold mb-2">
+                <span class="text-gray-200">PC &amp; Laptop Hardware/Software Maintenance</span>
+                <span class="text-amber-500 shrink-0">E-Book Author (2024)</span>
+              </div>
+              <div class="w-full h-2 bg-dark-card rounded-full overflow-hidden border border-dark-border/50">
+                <div class="progress-fill h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full" data-width="100%" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <!-- Domain 5 -->
+            <div>
+              <div class="flex justify-between gap-2 text-xs font-semibold mb-2">
+                <span class="text-gray-200">Online Teaching &amp; Technical Pedagogy</span>
+                <span class="text-amber-500 shrink-0">CIAST TM001 &bull; Digital Tools</span>
+              </div>
+              <div class="w-full h-2 bg-dark-card rounded-full overflow-hidden border border-dark-border/50">
+                <div class="progress-fill h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full" data-width="100%" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <!-- Domain 6 -->
+            <div>
+              <div class="flex justify-between gap-2 text-xs font-semibold mb-2">
+                <span class="text-gray-200">Engineering Management &amp; Quality</span>
+                <span class="text-amber-500 shrink-0">MSc Brunel &bull; MPC Gold</span>
+              </div>
+              <div class="w-full h-2 bg-dark-card rounded-full overflow-hidden border border-dark-border/50">
+                <div class="progress-fill h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full" data-width="100%" style="width: 0%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: 5x3 Tools, Subjects & Credentials Grid -->
+        <div class="lg:col-span-7">
+          <div class="grid grid-cols-3 sm:grid-cols-5 gap-3.5">
+            
+            <div class="bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-4 flex flex-col items-center justify-center gap-2.5 transition-all hover:-translate-y-1 text-center">
+              <i class="fa-solid fa-microchip text-2xl text-amber-400"></i>
+              <span class="text-xs font-medium text-gray-300">IoT Systems</span>
+            </div>
+
+            <div class="bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-4 flex flex-col items-center justify-center gap-2.5 transition-all hover:-translate-y-1 text-center">
+              <i class="fa-solid fa-certificate text-2xl text-rose-400"></i>
+              <span class="text-xs font-medium text-gray-300">CompTIA ITF+</span>
+            </div>
+
+            <div class="bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-4 flex flex-col items-center justify-center gap-2.5 transition-all hover:-translate-y-1 text-center">
+              <i class="fa-solid fa-desktop text-2xl text-sky-400"></i>
+              <span class="text-xs font-medium text-gray-300">CompTIA A+</span>
+            </div>
+
+            <div class="bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-4 flex flex-col items-center justify-center gap-2.5 transition-all hover:-translate-y-1 text-center">
+              <i class="fa-solid fa-network-wired text-2xl text-cyan-400"></i>
+              <span class="text-xs font-medium text-gray-300">Network+</span>
+            </div>
+
+            <div class="bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-4 flex flex-col items-center justify-center gap-2.5 transition-all hover:-translate-y-1 text-center">
+              <i class="fa-solid fa-memory text-2xl text-emerald-400"></i>
+              <span class="text-xs font-medium text-gray-300">PCB Design</span>
+            </div>
+
+            <div class="bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-4 flex flex-col items-center justify-center gap-2.5 transition-all hover:-translate-y-1 text-center">
+              <i class="fa-solid fa-tower-broadcast text-2xl text-indigo-400"></i>
+              <span class="text-xs font-medium text-gray-300">Digital Tech</span>
+            </div>
+
+            <div class="bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-4 flex flex-col items-center justify-center gap-2.5 transition-all hover:-translate-y-1 text-center">
+              <i class="fa-solid fa-wave-square text-2xl text-orange-400"></i>
+              <span class="text-xs font-medium text-gray-300">Analogue Elec</span>
+            </div>
+
+            <div class="bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-4 flex flex-col items-center justify-center gap-2.5 transition-all hover:-translate-y-1 text-center">
+              <i class="fa-solid fa-gauge-high text-2xl text-yellow-400"></i>
+              <span class="text-xs font-medium text-gray-300">Instrumentation</span>
+            </div>
+
+            <div class="bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-4 flex flex-col items-center justify-center gap-2.5 transition-all hover:-translate-y-1 text-center">
+              <i class="fa-solid fa-chalkboard-user text-2xl text-green-400"></i>
+              <span class="text-xs font-medium text-gray-300">Google Classroom</span>
+            </div>
+
+            <div class="bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-4 flex flex-col items-center justify-center gap-2.5 transition-all hover:-translate-y-1 text-center">
+              <i class="fa-solid fa-users-rectangle text-2xl text-blue-400"></i>
+              <span class="text-xs font-medium text-gray-300">MS Teams</span>
+            </div>
+
+            <div class="bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-4 flex flex-col items-center justify-center gap-2.5 transition-all hover:-translate-y-1 text-center">
+              <i class="fa-solid fa-gamepad text-2xl text-purple-400"></i>
+              <span class="text-xs font-medium text-gray-300">Kahoot.it</span>
+            </div>
+
+            <div class="bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-4 flex flex-col items-center justify-center gap-2.5 transition-all hover:-translate-y-1 text-center">
+              <i class="fa-solid fa-laptop-medical text-2xl text-teal-400"></i>
+              <span class="text-xs font-medium text-gray-300">PC Hardware</span>
+            </div>
+
+            <div class="bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-4 flex flex-col items-center justify-center gap-2.5 transition-all hover:-translate-y-1 text-center">
+              <i class="fa-solid fa-helmet-safety text-2xl text-amber-500"></i>
+              <span class="text-xs font-medium text-gray-300">BEM Reg.</span>
+            </div>
+
+            <div class="bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-4 flex flex-col items-center justify-center gap-2.5 transition-all hover:-translate-y-1 text-center">
+              <i class="fa-solid fa-gears text-2xl text-pink-400"></i>
+              <span class="text-xs font-medium text-gray-300">MBOT Tech.</span>
+            </div>
+
+            <div class="bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500/50 rounded-2xl p-4 flex flex-col items-center justify-center gap-2.5 transition-all hover:-translate-y-1 text-center">
+              <i class="fa-solid fa-globe text-2xl text-sky-300"></i>
+              <span class="text-xs font-medium text-gray-300">MIET Member</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 6. FEATURED PROJECTS & PUBLICATIONS SECTION ==================== -->
+  <section id="projects" class="py-20 lg:py-24 bg-dark-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header Row -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+        <div class="space-y-2">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-amber-500">Innovation &amp; Publication</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Selected Innovations &amp; Work</h2>
+        </div>
+
+        <button onclick="openAllInnovationsModal()" class="self-start sm:self-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-dark-card hover:bg-dark-cardHover border border-dark-border hover:border-amber-500 text-xs font-bold uppercase tracking-wider text-white transition-all">
+          <span>View All 17 Medals</span>
+          <i class="fa-solid fa-arrow-right text-amber-500"></i>
+        </button>
+      </div>
+
+      <!-- 3-Column Project Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        
+        <!-- Project 1 -->
+        <article class="group bg-dark-card border border-dark-border hover:border-amber-500/50 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5 flex flex-col">
+          <div class="relative h-52 overflow-hidden bg-dark-surface cursor-pointer" onclick="openProjectModal(0)">
+            <img
+              src="https://placehold.co/800x500/181B20/F59E0B?text=IoT+Enhanced+Aquaponics+System"
+              alt="IoT Enhanced Aquaponics System"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-card via-transparent to-transparent opacity-80"></div>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors cursor-pointer" onclick="openProjectModal(0)">
+                  IoT Enhanced Aquaponics System
+                </h3>
+                <p class="text-xs text-gray-400 mt-1 line-clamp-2">
+                  Silver Medal — Bridging Sustainable, EIE Eureka International Competition 2023 (Eureka2023), MSI, Kulim, Kedah.
+                </p>
+              </div>
+              <button onclick="openProjectModal(0)" aria-label="View Innovation Details" class="w-9 h-9 rounded-xl bg-dark-bg border border-dark-border hover:border-amber-500 text-gray-300 hover:text-amber-500 flex items-center justify-center shrink-0 transition-colors">
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+              </button>
+            </div>
+
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md bg-dark-bg border border-dark-border text-[11px] font-medium text-gray-300">IoT</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-bg border border-dark-border text-[11px] font-medium text-gray-300">Aquaponics</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-bg border border-dark-border text-[11px] font-medium text-gray-300">Eureka 2023</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="group bg-dark-card border border-dark-border hover:border-amber-500/50 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5 flex flex-col">
+          <div class="relative h-52 overflow-hidden bg-dark-surface cursor-pointer" onclick="openProjectModal(1)">
+            <img
+              src="https://placehold.co/800x500/181B20/F59E0B?text=Lean+%26+MUDA+IoT+Composting"
+              alt="Lean & MUDA Reduction in Composting Cycle Using IoT"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-card via-transparent to-transparent opacity-80"></div>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors cursor-pointer" onclick="openProjectModal(1)">
+                  Lean &amp; MUDA Reduction in Composting Cycle Using IoT
+                </h3>
+                <p class="text-xs text-gray-400 mt-1 line-clamp-2">
+                  Gold Medal at Si2TE 2022 (SIRIM Kulim) &amp; ICompEx 2021; Silver Medal at WINTEX 2021 (Indonesia) &amp; NICEtech21.
+                </p>
+              </div>
+              <button onclick="openProjectModal(1)" aria-label="View Innovation Details" class="w-9 h-9 rounded-xl bg-dark-bg border border-dark-border hover:border-amber-500 text-gray-300 hover:text-amber-500 flex items-center justify-center shrink-0 transition-colors">
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+              </button>
+            </div>
+
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md bg-dark-bg border border-dark-border text-[11px] font-medium text-gray-300">IoT</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-bg border border-dark-border text-[11px] font-medium text-gray-300">Smart Composting</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-bg border border-dark-border text-[11px] font-medium text-gray-300">Gold Medal</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="group bg-dark-card border border-dark-border hover:border-amber-500/50 rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5 flex flex-col">
+          <div class="relative h-52 overflow-hidden bg-dark-surface cursor-pointer" onclick="openProjectModal(2)">
+            <img
+              src="https://placehold.co/800x500/181B20/F59E0B?text=Build+Your+Own+PC+(2024+E-Book)"
+              alt="Build Your Own PC 2024 E-Book & Hardware Innovations"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-card via-transparent to-transparent opacity-80"></div>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between space-y-5">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors cursor-pointer" onclick="openProjectModal(2)">
+                  Build Your Own PC (2024 E-Book) &amp; Lab Innovations
+                </h3>
+                <p class="text-xs text-gray-400 mt-1 line-clamp-2">
+                  Published 2024 e-book on PC building, alongside ICSD (Gold AiReX &amp; CITEX 2016), Multi Function Lab Equipment (2018), Wi-Ser (2017), and Solar Charger (2020).
+                </p>
+              </div>
+              <button onclick="openProjectModal(2)" aria-label="View Publication & Hardware Details" class="w-9 h-9 rounded-xl bg-dark-bg border border-dark-border hover:border-amber-500 text-gray-300 hover:text-amber-500 flex items-center justify-center shrink-0 transition-colors">
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+              </button>
+            </div>
+
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md bg-dark-bg border border-dark-border text-[11px] font-medium text-gray-300">E-Book 2024</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-bg border border-dark-border text-[11px] font-medium text-gray-300">PC Hardware</span>
+              <span class="px-2.5 py-1 rounded-md bg-dark-bg border border-dark-border text-[11px] font-medium text-gray-300">Embedded</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 7. AWARDS, JURY & COMMUNITY RECOGNITION SECTION ==================== -->
+  <section id="awards" class="py-20 lg:py-24 bg-dark-surface border-y border-dark-border/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Heading -->
+      <div class="text-center max-w-2xl mx-auto mb-14 space-y-3">
+        <span class="text-xs font-bold uppercase tracking-[0.2em] text-amber-500">Recognition &amp; Service</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Awards, Jury &amp; Consultancy</h2>
+      </div>
+
+      <!-- 3-Column Recognition Cards (Factual records from CV) -->
+      <div id="testimonial-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Card 1: Innovation Medals -->
+        <div class="testimonial-card bg-dark-card border border-dark-border rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-6 transition-all duration-300">
+          <div class="space-y-3">
+            <div class="inline-flex items-center gap-2 text-amber-500 text-xs font-bold uppercase tracking-wider">
+              <i class="fa-solid fa-medal"></i>
+              <span>2012 – 2023</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-white">Innovation Medal Achievements</h3>
+            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              Recipient of 17 national and international innovation medals—including 5 Gold, 5 Silver, and 6 Bronze medals plus MARATEX pitching—across ITEX, MTE, SIRIM Si2TE, ICompEx, WINTEX Indonesia, Eureka, CITEX, AiReX, I-RIA, I-DeA, K-Inovasi, and MPC.
+            </p>
+          </div>
+          <div class="flex items-center justify-between gap-2 pt-3 border-t border-dark-border/60">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-500 flex items-center justify-center font-bold text-xs">
+                17x
+              </div>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold text-white">National &amp; International</h4>
+                <p class="text-[11px] text-gray-400">Gold, Silver &amp; Bronze Honors</p>
+              </div>
+            </div>
+            <button onclick="openAllInnovationsModal()" class="text-xs font-bold text-amber-500 hover:text-amber-400">
+              List &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2: External Jury & Verifier -->
+        <div class="testimonial-card bg-dark-card border border-amber-500/40 rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-6 shadow-lg transition-all duration-300">
+          <div class="space-y-3">
+            <div class="inline-flex items-center gap-2 text-amber-500 text-xs font-bold uppercase tracking-wider">
+              <i class="fa-solid fa-scale-balanced"></i>
+              <span>2019 – 2025</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-white">External Jury &amp; Verifier Roles</h3>
+            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              Appointed External Jury for MIIX 2025, I-JamCSIIX 2025 (Special &amp; Exhibition Editions), iTaLiiC 2025, UTHM National Innovation &amp; Invention Competition IiiCE (2019, 2024, 2025), and i-RITEC 2023, as well as External Verifier for MARA Japan Industrial Institute.
+            </p>
+          </div>
+          <div class="flex items-center justify-between gap-2 pt-3 border-t border-dark-border/60">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-500 flex items-center justify-center font-bold text-xs">
+                JURY
+              </div>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold text-white">Academic &amp; Innovation Panel</h4>
+                <p class="text-[11px] text-gray-400">MJII Verifier &amp; Exhibition Jury</p>
+              </div>
+            </div>
+            <span class="text-amber-500 text-xs font-semibold">8+ Events</span>
+          </div>
+        </div>
+
+        <!-- Card 3: National Trainer & Advisory Panels -->
+        <div class="testimonial-card bg-dark-card border border-dark-border rounded-2xl p-6 sm:p-7 flex flex-col justify-between space-y-6 transition-all duration-300">
+          <div class="space-y-3">
+            <div class="inline-flex items-center gap-2 text-amber-500 text-xs font-bold uppercase tracking-wider">
+              <i class="fa-solid fa-chalkboard-user"></i>
+              <span>Consultancy &amp; Service</span>
+            </div>
+            <h3 class="text-base sm:text-lg font-bold text-white">National Trainer &amp; Advisory Panels</h3>
+            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              WSMB Trainer 2025 (Electronics), Trainer for IoT Installation for Green Environment at KKTM Sri Gading (CIAST 2025), CIAST IoT eProfiling Development Panel (Part 1 &amp; 2), Internal Reskilling Trainer (Project Management &amp; PCB), and Pakar Rujuk KOSPEN Plus.
+            </p>
+          </div>
+          <div class="flex items-center justify-between gap-2 pt-3 border-t border-dark-border/60">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-500 flex items-center justify-center font-bold text-xs">
+                TVET
+              </div>
+              <div>
+                <h4 class="text-xs sm:text-sm font-bold text-white">WSMB &amp; CIAST Contributor</h4>
+                <p class="text-[11px] text-gray-400">Community &amp; Curriculum Service</p>
+              </div>
+            </div>
+            <span class="text-amber-500 text-xs font-semibold">2013–2025</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Interactive Highlight Dots -->
+      <div class="flex items-center justify-center gap-2 mt-8">
+        <button onclick="highlightTestimonial(0)" aria-label="Highlight Card 1" class="t-dot w-2.5 h-2.5 rounded-full bg-dark-border hover:bg-amber-500/60 transition-all"></button>
+        <button onclick="highlightTestimonial(1)" aria-label="Highlight Card 2" class="t-dot w-6 h-2.5 rounded-full bg-amber-500 transition-all"></button>
+        <button onclick="highlightTestimonial(2)" aria-label="Highlight Card 3" class="t-dot w-2.5 h-2.5 rounded-full bg-dark-border hover:bg-amber-500/60 transition-all"></button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== 8. CONTACT SECTION ==================== -->
+  <section id="contact" class="py-20 lg:py-24 bg-dark-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
+        
+        <!-- Left Column: Heading & Description -->
+        <div class="lg:col-span-4 space-y-4">
+          <span class="text-xs font-bold uppercase tracking-[0.2em] text-amber-500">Get In Touch</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+            Academic, Training &amp; <br class="hidden sm:inline" /> Consultancy Inquiries
+          </h2>
+          <p class="text-sm text-gray-400 leading-relaxed">
+            Reach out for technical training, Electronic IoT workshops, CompTIA ITF+ programs, external jury invitations, or academic collaborations at TVETMARA Petaling Jaya.
+          </p>
+        </div>
+
+        <!-- Middle Column: Contact Form -->
+        <div class="lg:col-span-5">
+          <form id="contact-form" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="name" class="sr-only">Your Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  placeholder="Your Name"
+                  class="w-full px-4 py-3.5 rounded-xl bg-dark-card border border-dark-border focus:border-amber-500 focus:outline-none text-sm text-white placeholder-gray-500 transition-colors"
+                />
+              </div>
+              <div>
+                <label for="email" class="sr-only">Your Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  placeholder="Your Email"
+                  class="w-full px-4 py-3.5 rounded-xl bg-dark-card border border-dark-border focus:border-amber-500 focus:outline-none text-sm text-white placeholder-gray-500 transition-colors"
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="project-type" class="sr-only">Subject / Inquiry Type</label>
+                <select
+                  id="project-type"
+                  class="w-full px-4 py-3.5 rounded-xl bg-dark-card border border-dark-border focus:border-amber-500 focus:outline-none text-sm text-gray-300 transition-colors"
+                >
+                  <option value="" disabled selected>Subject / Inquiry Type</option>
+                  <option value="iot-training">Electronic IoT / PCB Training</option>
+                  <option value="comptia">CompTIA Academy (ITF+ / A+ / Network+)</option>
+                  <option value="jury">External Jury / Verifier Invitation</option>
+                  <option value="academic">Academic / Research Collaboration</option>
+                </select>
+              </div>
+              <div>
+                <label for="organization" class="sr-only">Organization</label>
+                <input
+                  type="text"
+                  id="organization"
+                  placeholder="Organization / Institution"
+                  class="w-full px-4 py-3.5 rounded-xl bg-dark-card border border-dark-border focus:border-amber-500 focus:outline-none text-sm text-white placeholder-gray-500 transition-colors"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="message" class="sr-only">Message</label>
+              <textarea
+                id="message"
+                rows="4"
+                required
+                placeholder="Write your message or inquiry details..."
+                class="w-full px-4 py-3.5 rounded-xl bg-dark-card border border-dark-border focus:border-amber-500 focus:outline-none text-sm text-white placeholder-gray-500 transition-colors resize-none"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-dark-bg font-bold text-xs uppercase tracking-wider shadow-amber-btn transition-all hover:-translate-y-0.5"
+            >
+              <span>Send Message</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </form>
+        </div>
+
+        <!-- Right Column: Direct Contact Info Card (Strictly from CV) -->
+        <div class="lg:col-span-3">
+          <div class="bg-dark-card border border-dark-border rounded-2xl p-6 space-y-5">
+            
+            <div class="flex items-start gap-3.5">
+              <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-500 flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-regular fa-envelope text-sm"></i>
+              </div>
+              <div>
+                <p class="text-[11px] uppercase tracking-wider text-gray-500 font-semibold">Email</p>
+                <a href="mailto:estahusna@mara.gov.my" class="text-xs sm:text-sm font-medium text-white hover:text-amber-400 transition-colors break-all">
+                  estahusna@mara.gov.my
+                </a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-500 flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-phone text-sm"></i>
+              </div>
+              <div>
+                <p class="text-[11px] uppercase tracking-wider text-gray-500 font-semibold">Phone</p>
+                <a href="tel:+60127501658" class="text-xs sm:text-sm font-medium text-white hover:text-amber-400 transition-colors">
+                  +6012-750 1658
+                </a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3.5">
+              <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-500 flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-location-dot text-sm"></i>
+              </div>
+              <div>
+                <p class="text-[11px] uppercase tracking-wider text-gray-500 font-semibold">Address</p>
+                <p class="text-xs sm:text-sm font-medium text-white leading-relaxed">
+                  TVETMARA Petaling Jaya,<br />
+                  No. 12, Jalan Templer,<br />
+                  46000 Petaling Jaya, Selangor.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-dark-surface border-t border-dark-border pt-14 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-dark-border/70">
+        
+        <!-- Brand & Role -->
+        <div class="lg:col-span-4 space-y-4">
+          <a href="#home" class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center text-dark-bg font-display font-extrabold text-xs">
+              EH
+            </div>
+            <span class="font-display font-bold text-lg tracking-tight text-white">
+              ESTA <span class="text-amber-500">HUSNA</span>
+            </span>
+          </a>
+          <p class="text-xs text-gray-400 leading-relaxed max-w-xs">
+            Vocational Trainer Officer &amp; Technical Lecturer (Electronic IoT) at Kolej Kemahiran Tinggi MARA (TVETMARA) Petaling Jaya.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="lg:col-span-3 space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white">Quick Links</h4>
+          <ul class="grid grid-cols-2 gap-2 text-xs text-gray-400">
+            <li><a href="#about" class="hover:text-amber-500 transition-colors">About</a></li>
+            <li><a href="#skills" class="hover:text-amber-500 transition-colors">Skills</a></li>
+            <li><a href="#services" class="hover:text-amber-500 transition-colors">Services</a></li>
+            <li><a href="#awards" class="hover:text-amber-500 transition-colors">Awards</a></li>
+            <li><a href="#projects" class="hover:text-amber-500 transition-colors">Projects</a></li>
+            <li><a href="#contact" class="hover:text-amber-500 transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Core Courses -->
+        <div class="lg:col-span-3 space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white">Core Courses</h4>
+          <ul class="space-y-2 text-xs text-gray-400">
+            <li><a href="#skills" class="hover:text-amber-500 transition-colors">Introduction to IoT</a></li>
+            <li><a href="#skills" class="hover:text-amber-500 transition-colors">CompTIA ITF+ / A+ / Network+</a></li>
+            <li><a href="#skills" class="hover:text-amber-500 transition-colors">Digital &amp; Analogue Electronics</a></li>
+            <li><a href="#skills" class="hover:text-amber-500 transition-colors">Instrumentation &amp; Control</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="lg:col-span-2 space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-white">Contact Info</h4>
+          <div class="flex items-center gap-2.5">
+            <a href="mailto:estahusna@mara.gov.my" aria-label="Email" class="w-9 h-9 rounded-xl bg-dark-card border border-dark-border hover:border-amber-500 text-gray-300 hover:text-amber-500 flex items-center justify-center transition-colors">
+              <i class="fa-regular fa-envelope text-sm"></i>
+            </a>
+            <a href="tel:+60127501658" aria-label="Phone" class="w-9 h-9 rounded-xl bg-dark-card border border-dark-border hover:border-amber-500 text-gray-300 hover:text-amber-500 flex items-center justify-center transition-colors">
+              <i class="fa-solid fa-phone text-sm"></i>
+            </a>
+            <a href="#contact" aria-label="Location" class="w-9 h-9 rounded-xl bg-dark-card border border-dark-border hover:border-amber-500 text-gray-300 hover:text-amber-500 flex items-center justify-center transition-colors">
+              <i class="fa-solid fa-location-dot text-sm"></i>
+            </a>
+          </div>
+          <p class="text-[11px] text-gray-400">Petaling Jaya, Selangor</p>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright -->
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
+        <p>&copy; <span id="year"></span> Mohd. Esta Husna Bin Zainal. All rights reserved.</p>
+        <p>BEM G 1179269A &bull; MBOT GT22020874 &bull; MIET 1100158848</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== INTERACTIVE MODAL (Projects, Services & Full CV Lists) ==================== -->
+  <div id="detail-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+    <div class="bg-dark-card border border-dark-border rounded-2xl max-w-xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-7 space-y-5 shadow-2xl relative animate-[fadeIn_0.2s_ease-out]">
+      <button onclick="closeModal()" aria-label="Close Modal" class="sticky top-0 float-right w-8 h-8 rounded-lg bg-dark-bg border border-dark-border text-gray-400 hover:text-white flex items-center justify-center">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div id="modal-image-wrap" class="hidden rounded-xl overflow-hidden h-44 border border-dark-border">
+        <img id="modal-image" src="" alt="Project Preview" class="w-full h-full object-cover" />
+      </div>
+
+      <div>
+        <span id="modal-badge" class="text-[11px] font-bold uppercase tracking-widest text-amber-500">Overview</span>
+        <h3 id="modal-title" class="text-xl sm:text-2xl font-extrabold text-white mt-1">Title</h3>
+      </div>
+
+      <div id="modal-desc" class="text-sm text-gray-300 leading-relaxed space-y-2">
+        Description text goes here.
+      </div>
+
+      <div id="modal-tags" class="flex flex-wrap gap-2"></div>
+
+      <div class="pt-2 flex items-center justify-end gap-3">
+        <button onclick="closeModal()" class="px-5 py-2.5 rounded-full border border-dark-border text-xs font-bold uppercase tracking-wider text-gray-300 hover:text-white">
+          Close
+        </button>
+        <a href="#contact" onclick="closeModal()" class="px-5 py-2.5 rounded-full bg-amber-500 hover:bg-amber-400 text-dark-bg text-xs font-bold uppercase tracking-wider">
+          Inquire Now
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== NOTIFICATION TOAST ==================== -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 translate-y-20 opacity-0 pointer-events-none transition-all duration-300 bg-dark-card border border-amber-500/60 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 max-w-sm">
+    <span class="w-7 h-7 rounded-full bg-amber-500/20 text-amber-500 flex items-center justify-center shrink-0">
+      <i class="fa-solid fa-check text-xs"></i>
+    </span>
+    <p id="toast-message" class="text-xs sm:text-sm font-medium text-gray-200">Action completed.</p>
+  </div>
+
+  <!-- ==================== JAVASCRIPT INTERACTIVITY ==================== -->
+  <script>
+    // 1. Set Current Year in Footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // 2. Mobile Navigation Drawer Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    function toggleMobileMenu() {
+      const isHidden = mobileMenu.classList.contains('hidden');
+      if (isHidden) {
+        mobileMenu.classList.remove('hidden');
+        iconOpen.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      }
+    }
+
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      });
+    });
+
+    // 3. Active Navbar Link Highlighting on Scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = 'home';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 130;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('text-amber-500');
+        link.classList.add('text-gray-400');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.remove('text-gray-400');
+          link.classList.add('text-amber-500');
+        }
+      });
+    });
+
+    // 4. Animate Skill Progress Bars on Viewport Entry
+    const skillSection = document.getElementById('skills-bars');
+    const progressBars = document.querySelectorAll('.progress-fill');
+    let skillsAnimated = false;
+
+    const skillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !skillsAnimated) {
+          progressBars.forEach(bar => {
+            bar.style.width = bar.getAttribute('data-width');
+          });
+          skillsAnimated = true;
+        }
+      });
+    }, { threshold: 0.25 });
+
+    if (skillSection) {
+      skillObserver.observe(skillSection);
+    }
+
+    // 5. Project & Service Details Modal Data & Controls
+    const projectsData = [
+      {
+        badge: 'International Innovation Award',
+        title: 'IoT Enhanced Aquaponics System',
+        image: 'https://placehold.co/800x500/181B20/F59E0B?text=IoT+Enhanced+Aquaponics+System',
+        desc: 'Awarded Silver Medal for "IoT Enhanced Aquaponics System: Bridging Sustainable" at the EIE Eureka International Competition 2023 (Eureka2023), hosted at MSI, Kulim, Kedah.',
+        tags: ['IoT', 'Aquaponics', 'Eureka 2023', 'Silver Medal']
+      },
+      {
+        badge: 'Multi-Award IoT Innovation',
+        title: 'Lean & MUDA Reduction in Composting Cycle Using IoT',
+        image: 'https://placehold.co/800x500/181B20/F59E0B?text=Lean+%26+MUDA+IoT+Composting',
+        desc: 'Recognized across 4 competitions: Gold Medal at SIRIM Invention, Innovation and Technology Expo 2022 (Si2TE 2022, SIRIM Kulim); Gold Medal at National Innovation and Invention Competition Through Exhibition 2021 (ICompEx 2021); Silver Medal at Indonesia Inventors Day, World Invention and Technology Expo 2021 (WINTEX, Indonesia); and Silver Medal at National Innovation Competition of Education and Technology 2021 (NICEtech21).',
+        tags: ['IoT', 'Smart Composting', 'Si2TE Gold', 'ICompEx Gold', 'WINTEX Silver']
+      },
+      {
+        badge: '2024 Publication & Hardware Portfolio',
+        title: 'Build Your Own PC (2024 E-Book) & Lab Innovations',
+        image: 'https://placehold.co/800x500/181B20/F59E0B?text=Build+Your+Own+PC+(2024+E-Book)',
+        desc: 'Author of the 2024 e-book "Build Your Own PC". Additional hardware innovations include: Intelligent Controller Using Smart Devices (ICSD - Gold Medal at AiReX 2016 & CITEX 2016; Bronze at ITEX 2016, MTE 2016 & MARA Innovation 2016), Multi Function Lab Equipment (Silver at UiTM I-DeA 2018; Bronze at UUM I-RIA 2018 & UKM K-Inovasi 2018), Wireless Switch Controller Wi-Ser (Silver at EIE2017), Solar Panel Portable Charger (Bronze at AiReX 2020), and MARATEX 2017 Pitching (ICSD & LED Screen Display MIST).',
+        tags: ['E-Book 2024', 'PC Hardware', 'ICSD Gold', 'Lab Equipment', 'Wi-Ser']
+      }
+    ];
+
+    const modal = document.getElementById('detail-modal');
+    const modalImageWrap = document.getElementById('modal-image-wrap');
+    const modalImage = document.getElementById('modal-image');
+    const modalBadge = document.getElementById('modal-badge');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalTags = document.getElementById('modal-tags');
+
+    function openProjectModal(index) {
+      const item = projectsData[index];
+      modalBadge.textContent = item.badge;
+      modalTitle.textContent = item.title;
+      modalDesc.textContent = item.desc;
+      modalImage.src = item.image;
+      modalImageWrap.classList.remove('hidden');
+
+      modalTags.innerHTML = item.tags
+        .map(tag => `<span class="px-3 py-1 rounded-md bg-dark-bg border border-dark-border text-xs text-gray-300">${tag}</span>`)
+        .join('');
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function openServiceModal(title, description) {
+      modalBadge.textContent = 'Core Expertise Details';
+      modalTitle.textContent = title;
+      modalDesc.textContent = description;
+      modalImageWrap.classList.add('hidden');
+      modalTags.innerHTML = '';
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function openQualificationsModal() {
+      modalBadge.textContent = 'Curriculum Vitae Summary';
+      modalTitle.textContent = 'Taught Courses & Professional Registrations';
+      modalImageWrap.classList.add('hidden');
+      modalDesc.innerHTML = `
+        <p class="font-semibold text-white">Courses Taught at KKTM Petaling Jaya:</p>
+        <p class="text-xs text-gray-300">Workshop Electronics, Digital Communication and Networks Technologies, Digital Fundamental, Electronic Circuits, Electronics, Analogue Electronics, Instrumentation and Control Principles, Introduction to IoT, CompTIA ITF+.</p>
+        <p class="font-semibold text-white pt-2">Professional Registrations:</p>
+        <ul class="list-disc pl-5 text-xs text-gray-300 space-y-1">
+          <li>Registered Graduate Engineer (BEM) — G 1179269A</li>
+          <li>Registered Graduate Technologist (MBOT) — GT22020874</li>
+          <li>Registered Member of Institute of Engineering and Technology (MIET) — 1100158848</li>
+        </ul>
+      `;
+      modalTags.innerHTML = '';
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function openAllInnovationsModal() {
+      modalBadge.textContent = 'Complete Competition Record';
+      modalTitle.textContent = 'Innovation Competition Achievements (2012–2023)';
+      modalImageWrap.classList.add('hidden');
+      modalDesc.innerHTML = `
+        <ul class="list-disc pl-5 text-xs text-gray-300 space-y-1.5">
+          <li><strong class="text-amber-400">Silver Medal</strong> — IoT Enhanced Aquaponics System: Bridging Sustainable (EIE Eureka 2023, MSI Kulim)</li>
+          <li><strong class="text-amber-400">Gold Medal</strong> — Lean in Composting Cycle Using IoT Technology (SIRIM Si2TE 2022, Kulim)</li>
+          <li><strong class="text-amber-400">Gold Medal</strong> — MUDA Reduction in Composting Cycle (ICompEx 2021)</li>
+          <li><strong class="text-amber-400">Silver Medal</strong> — MUDA Reduction in Composting Cycle (WINTEX 2021, Indonesia)</li>
+          <li><strong class="text-amber-400">Silver Medal</strong> — Penggunaan IoT dan Pengurangan MUDA dalam Kitaran Kompos (NICEtech21)</li>
+          <li><strong class="text-amber-400">Bronze Medal</strong> — Solar Panel Portable Charger (AiReX 2020, Lumut)</li>
+          <li><strong class="text-amber-400">Silver Medal</strong> — Multi Function Lab Equipment (UiTM I-DeA 2018, Arau)</li>
+          <li><strong class="text-amber-400">Bronze Medal</strong> — Multi Function Lab Equipment (UUM I-RIA 2018 &amp; UKM K-Inovasi 2018)</li>
+          <li><strong class="text-amber-400">Silver Medal</strong> — Wireless Switch Controller Wi-Ser (EIE2017 International Level, MSI Kulim)</li>
+          <li><strong class="text-amber-400">Pitching Session</strong> — Project of ICSD &amp; LED Screen Display MIST (MARATEX 2017, KL)</li>
+          <li><strong class="text-amber-400">Gold Medal</strong> — Intelligent Controller Using Smart Devices ICSD (AiReX 2016 &amp; CITEX 2016)</li>
+          <li><strong class="text-amber-400">Bronze Medal</strong> — ITEX 2016 (KLCC), MARA Innovation Exhibition 2016 &amp; MTE 2016 (WTC KL)</li>
+          <li><strong class="text-amber-400">Gold Medal</strong> — Malaysia Productivity Corporation National Convention of Quality Environment 2012 (MPC2012, KLCC)</li>
+        </ul>
+      `;
+      modalTags.innerHTML = '';
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Close modal on outside backdrop click
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // 6. Testimonial Highlight Controls
+    function highlightTestimonial(index) {
+      const cards = document.querySelectorAll('.testimonial-card');
+      const dots = document.querySelectorAll('.t-dot');
+
+      cards.forEach((card, i) => {
+        if (i === index) {
+          card.classList.remove('border-dark-border');
+          card.classList.add('border-amber-500/60', 'scale-[1.02]');
+        } else {
+          card.classList.add('border-dark-border');
+          card.classList.remove('border-amber-500/60', 'scale-[1.02]');
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.className = 't-dot w-6 h-2.5 rounded-full bg-amber-500 transition-all';
+        } else {
+          dot.className = 't-dot w-2.5 h-2.5 rounded-full bg-dark-border hover:bg-amber-500/60 transition-all';
+        }
+      });
+    }
+
+    // 7. Toast Notification Helper & Form Submission
+    let toastTimeout;
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      toastMsg.textContent = message;
+
+      toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+      }, 4000);
+    }
+
+    document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const nameInput = document.getElementById('name').value.trim();
+      showToast(`Thank you, ${nameInput || 'there'}! Your message has been sent.`);
+      this.reset();
+    });
+  </script>
+</body>
+</html>
